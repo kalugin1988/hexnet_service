@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  hexnet_service:
+    build: .
+    container_name: hexnet_service
+    image: kalugin66/hexnet_service
+    restart: unless-stopped
+    ports:
+      - "8092:8080"
+#    volumes:
+#      - /docker/hexnet_service:/hexnet_service
+    environment:
+      - TZ=Asia/Yekaterinburg
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:8080"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+#docker-compose up -d --build
