@@ -6,9 +6,7 @@ services:
     image: kalugin66/hexnet_service
     restart: unless-stopped
     ports:
-      - "8092:8080"
-#    volumes:
-#      - /docker/hexnet_service:/hexnet_service
+      - "8080:8080"
     environment:
       - TZ=Asia/Yekaterinburg
     healthcheck:
